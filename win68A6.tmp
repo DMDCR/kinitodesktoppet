@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjqqgvxffjmgg"]
+
+[ext_resource type="Script" path="res://fullwindowclickt.gd" id="1_02ht5"]
+[ext_resource type="PackedScene" uid="uid://8vpj827k12wh" path="res://node_2d.tscn" id="1_yf1cp"]
+
+[sub_resource type="Theme" id="Theme_gf4on"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ejpo5"]
+viewport_path = NodePath("Window/SubViewport")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_blm8j"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_02ht5")
+
+[node name="Window" type="Window" parent="."]
+transparent_bg = true
+mode = 2
+title = "Kinito"
+initial_position = 1
+size = Vector2i(256, 256)
+borderless = true
+always_on_top = true
+transparent = true
+unfocusable = true
+mouse_passthrough = true
+theme = SubResource("Theme_gf4on")
+
+[node name="SubViewport" type="SubViewport" parent="Window"]
+transparent_bg = true
+size = Vector2i(256, 256)
+
+[node name="Node2D" parent="Window/SubViewport" instance=ExtResource("1_yf1cp")]
+
+[node name="TextureRect" type="TextureRect" parent="Window"]
+offset_right = 256.0
+offset_bottom = 256.0
+texture = SubResource("ViewportTexture_ejpo5")
+
+[node name="Control" type="Control" parent="Window"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 249.0
+offset_bottom = 75.0
+text = "desktop pet testing window"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -12.0
+offset_top = -15.0
+offset_right = 318.0
+offset_bottom = 267.0
+texture = SubResource("CanvasTexture_blm8j")

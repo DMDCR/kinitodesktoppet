@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu5fsnfycmrx0"]
+
+[ext_resource type="PackedScene" uid="uid://b656u836xvgkd" path="res://KinitoA.glb" id="1_lysho"]
+
+[node name="KinitoA" instance=ExtResource("1_lysho")]
+
+[node name="Head" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.97893, 0)
